@@ -1,0 +1,134 @@
+import turtle as trtl
+
+painter = trtl.Turtle()
+painter.speed(0)
+painter.showturtle()
+
+# grass floor
+painter.pencolor("darkgreen")
+painter.fillcolor("darkgreen")
+painter.penup()
+painter.goto(-425,-425)
+painter.pendown()
+painter.begin_fill()
+painter.forward(950)
+painter.left(90)
+painter.forward(200)
+painter.left(90)
+painter.forward(1050)
+painter.left(90)
+painter.forward(425)
+painter.end_fill()
+painter.penup()
+
+# sky
+painter.goto(503,430)
+painter.pendown()
+painter.pencolor("skyblue")
+painter.fillcolor("skyblue")
+painter.begin_fill()
+painter.forward(655)
+painter.right(90)
+painter.forward(1025)
+painter.right(90)
+painter.forward(655)
+painter.right(90)
+painter.forward(1025)
+painter.end_fill()
+painter.penup()
+
+# sun
+painter.goto(-500,275)
+painter.pendown()
+painter.fillcolor("yellow")
+painter.begin_fill()
+painter.circle(160,360)
+painter.end_fill()
+painter.penup()
+
+# bee 
+painter.pencolor("yellow")
+painter.goto(300,250)
+painter.pendown()
+painter.fillcolor("yellow")
+painter.begin_fill()
+painter.circle(20,360)
+painter.end_fill()
+painter.forward(10)
+painter.begin_fill()
+painter.circle(20,360)
+painter.end_fill()
+painter.forward(10)
+painter.begin_fill()
+painter.circle(20,360)
+painter.end_fill()
+painter.penup()
+
+# stem
+painter.color("green")
+painter.pensize(15)
+painter.goto(0, -225)
+painter.pendown()
+painter.setheading(90)
+painter.forward(200)
+
+# first leaf
+painter.pensize(1)
+painter.backward(115)
+painter.begin_fill()
+painter.left(45)
+painter.circle(40, 90)
+painter.circle(40, 90)
+painter.left(135)
+painter.end_fill()
+painter.penup()
+
+# second leaf
+painter.goto(0,-70)
+painter.pendown()
+painter.begin_fill()
+painter.right(200)
+painter.circle(25, 90)
+painter.circle(40, 90)
+painter.end_fill()
+
+# change pen
+painter.penup()
+painter.shape("circle")
+painter.turtlesize(2.5)
+
+# draw flower
+painter.goto(-70, 100)
+
+# ring 1 of flower
+for petal in range(18):
+  painter.right(20)
+  painter.forward(30)
+  painter.color("darkblue")
+  painter.stamp()
+
+# draw flower
+painter.goto(-42.5, 90)
+
+# ring 2 of flower
+for petal in range(12):
+  painter.right(30)
+  painter.forward(30)
+  painter.color("darkblue")
+  painter.stamp()
+
+# change pen
+painter.penup()
+painter.turtlesize(4.5)
+painter.color("yellow")
+
+# draw flower
+painter.goto(5, 58)
+painter.pendown()
+painter.begin_fill()
+painter.stamp()
+painter.end_fill()
+
+  
+wn = trtl.Screen()
+wn.mainloop()
