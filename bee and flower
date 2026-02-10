@@ -46,7 +46,7 @@ painter.circle(160,360)
 painter.end_fill()
 painter.penup()
 
-# bee 
+# bee body
 painter.pencolor("yellow")
 painter.goto(300,250)
 painter.pendown()
@@ -61,6 +61,73 @@ painter.end_fill()
 painter.forward(10)
 painter.begin_fill()
 painter.circle(20,360)
+painter.end_fill()
+painter.begin_fill()
+painter.circle(20,360)
+painter.end_fill()
+painter.forward(10)
+painter.begin_fill()
+painter.circle(20,360)
+painter.end_fill()
+painter.penup()
+
+# bee stripes
+num_dots = 1
+xpos = 300
+ypos = 250
+painter.pensize(5)
+painter.pencolor("black")
+
+# draw two sets of dots
+while (num_dots <= 3):
+  painter.penup()
+  painter.goto(xpos, ypos)
+  painter.pendown()
+  painter.setheading(90)
+  painter.forward(40)
+  painter.penup()
+  painter.goto(xpos + 10, ypos + 0)
+  painter.setheading(90)
+  painter.pendown()
+  painter.forward(40)
+
+  # position next dots
+  ypos = ypos + 0
+  xpos = xpos + 10
+  num_dots = num_dots + 1
+
+# bee wing
+def draw_oval(radius_x, radius_y):
+  painter.penup()
+  painter.pensize(2)
+  painter.goto(315, 290)
+  painter.setheading(0)
+  painter.pendown()
+  painter.fillcolor("white")
+  painter.begin_fill()
+  r = (radius_x + radius_y) / 2
+  for oval in range(2):
+    painter.circle(r, 90)
+    painter.circle(r / 2, 90)
+  painter.end_fill()
+radius_x = 10
+radius_y = 20
+draw_oval(radius_x, radius_y)
+painter.penup()
+
+# bee stinger
+painter.goto(350,277)
+painter.pensize(1)
+painter.pendown()
+painter.fillcolor("black")
+painter.begin_fill()
+painter.setheading(270)
+painter.forward(10)
+painter.left(120)
+painter.forward(10)
+painter.left(120)
+painter.forward(10)
+painter.left(120)
 painter.end_fill()
 painter.penup()
 
